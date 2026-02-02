@@ -3,27 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Ma Carte Cinéma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Carte Cinéma Interactive</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="map-container">
-        <img src="assets/render_color.png" class="map-layer color">
 
-        <img src="assets/render_grey.png" class="map-layer gray" id="gray-layer">
+    <div id="viewport">
+        <div id="map-container">
+            <img src="assets/render_color.jpg" alt="Carte Couleur" class="layer color">
 
-        <svg id="map-svg" viewBox="0 0 1920 1080">
-            <polygon id="zone-adventure" points="100,200 300,200 300,400 100,400" class="map-zone" />
-        </svg>
+            <img src="assets/render_gray.jpg" alt="Carte Grise" class="layer gray" id="gray-layer">
+
+            <svg id="map-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+                <polygon id="zone-aventure" points="500,300 800,300 800,600 500,600" class="map-zone"
+                    data-title="Aventure"
+                    data-desc="Plongez dans l'histoire des grands explorateurs et du Jurassic Park."></polygon>
+            </svg>
+        </div>
     </div>
 
     <div id="details-panel" class="hidden">
-        <h1 id="cat-title">Titre</h1>
-        <p id="cat-desc">Description...</p>
-        <div id="posters-grid"></div>
+        <button id="close-btn">×</button>
+        <div class="panel-content">
+            <h1 id="cat-title">Titre de la Catégorie</h1>
+            <div id="cat-info">
+                <p id="cat-desc">Description historique et anecdotes viendront ici.</p>
+                <div id="posters-grid">
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
     <script src="script.js"></script>
 </body>
 
