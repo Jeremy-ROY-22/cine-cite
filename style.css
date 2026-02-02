@@ -1,0 +1,44 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    overflow: hidden;
+}
+
+#map-container {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
+}
+
+.map-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Le SVG est invisible mais capte les souris */
+#map-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.map-zone {
+    fill: transparent;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* Effet au survol : on rend l'image grise transparente 
+   uniquement là où la souris survole (On affinera avec JS) */
+.map-zone:hover {
+    fill: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Carte Cinéma</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="map-container">
+        <img src="assets/render_color.png" class="map-layer color">
+
+        <img src="assets/render_grey.png" class="map-layer gray" id="gray-layer">
+
+        <svg id="map-svg" viewBox="0 0 1920 1080">
+            <polygon id="zone-adventure" points="100,200 300,200 300,400 100,400" class="map-zone" />
+        </svg>
+    </div>
+
+    <div id="details-panel" class="hidden">
+        <h1 id="cat-title">Titre</h1>
+        <p id="cat-desc">Description...</p>
+        <div id="posters-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
