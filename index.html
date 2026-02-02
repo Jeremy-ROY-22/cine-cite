@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Carte Cinéma Interactive</title>
+    <title>Cine-Cite Interactive</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,14 +12,14 @@
 
     <div id="viewport">
         <div id="map-container">
-            <img src="assets/render_color.png" alt="Carte Couleur" class="layer color">
+            <img src="assets/render_gray.png" alt="Carte Grise" class="layer gray">
 
-            <img src="assets/render_gray.png" alt="Carte Grise" class="layer gray" id="gray-layer">
+            <img src="assets/render_color.png" alt="Carte Couleur" class="layer color" id="color-layer">
 
-            <svg id="map-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-                <polygon id="zone-aventure" points="500,300 800,300 800,600 500,600" class="map-zone"
-                    data-title="Aventure"
-                    data-desc="Plongez dans l'histoire des grands explorateurs et du Jurassic Park."></polygon>
+            <svg id="map-svg" viewBox="0 0 1920 1080">
+                <polygon id="zone-aventure" points="800,400 1200,400 1200,700 800,700" class="map-zone"
+                    data-title="Zone Aventure" data-desc="Description de ta zone avec Jurassic Park et le Black Pearl.">
+                </polygon>
             </svg>
         </div>
     </div>
@@ -27,12 +27,8 @@
     <div id="details-panel" class="hidden">
         <button id="close-btn">×</button>
         <div class="panel-content">
-            <h1 id="cat-title">Titre de la Catégorie</h1>
-            <div id="cat-info">
-                <p id="cat-desc">Description historique et anecdotes viendront ici.</p>
-                <div id="posters-grid">
-                </div>
-            </div>
+            <h1 id="cat-title">Titre</h1>
+            <p id="cat-desc">Description...</p>
         </div>
     </div>
 

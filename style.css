@@ -1,51 +1,54 @@
-/* Reset et base */
 body,
 html {
     margin: 0;
     padding: 0;
-    background: #000;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #111;
     overflow: hidden;
+    height: 100%;
 }
 
 #viewport {
     width: 100vw;
     height: 100vh;
-    cursor: grab;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 #map-container {
     position: relative;
     width: 100vw;
-    /* Prend toute la largeur */
-    height: auto;
+    /* S'adapte à la largeur écran */
+    line-height: 0;
 }
 
 .layer {
-    display: block;
     width: 100%;
     height: auto;
+    display: block;
+}
+
+/* Image Grise (Fond) */
+.gray {
+    position: relative;
+    z-index: 1;
+    background-color: #333;
+    /* Si l'image rate, on verra du gris */
+}
+
+/* Image Couleur (Celle qu'on révèle) */
+.color {
     position: absolute;
     top: 0;
     left: 0;
-    pointer-events: none;
-    /* Ne bloque pas la souris pour le SVG */
-}
-
-/* Image grise au-dessus */
-.gray {
     z-index: 2;
-    /* On masque tout au départ, le JS créera le cercle de révélation */
+    background-color: rgba(255, 0, 0, 0.2);
+    /* Zone de debug rouge léger */
+    /* Masquée par défaut, le JS l'ouvrira */
     clip-path: circle(0% at 50% 50%);
-    transition: clip-path 0.1s ease-out;
+    pointer-events: none;
 }
 
-.color {
-    z-index: 1;
-}
-
-/* SVG d'interaction */
 #map-svg {
     position: absolute;
     top: 0;
@@ -53,51 +56,52 @@ html {
     width: 100%;
     height: 100%;
     z-index: 10;
+    pointer-events: none;
+    /* Laisse passer le clic vers le container pour le Panzoom */
 }
 
 .map-zone {
-    fill: rgba(255, 255, 255, 0);
-    /* Invisible */
-    stroke: rgba(255, 255, 255, 0.2);
-    stroke-width: 1;
+    fill: rgba(0, 255, 0, 0);
+    /* Invisible mais cliquable */
+    stroke: rgba(0, 255, 0, 0.3);
+    /* Contour vert très léger pour debug */
+    stroke-width: 2;
     cursor: pointer;
-    transition: fill 0.3s;
+    pointer-events: all;
+    /* Active le clic sur les polygones */
 }
 
 .map-zone:hover {
-    fill: rgba(255, 255, 255, 0.1);
+    fill: rgba(0, 255, 0, 0.1);
 }
 
-/* Panneau de détails */
+/* Panneau latéral */
 #details-panel {
     position: fixed;
     right: 0;
     top: 0;
-    width: 400px;
-    height: 100vh;
+    width: 350px;
+    height: 100%;
     background: rgba(0, 0, 0, 0.9);
-    border-left: 1px solid #333;
+    color: white;
+    padding: 30px;
     z-index: 100;
-    padding: 40px;
     transform: translateX(100%);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: 0.4s;
 }
 
 #details-panel.active {
     transform: translateX(0);
 }
 
+.hidden {
+    display: none;
+}
+
 #close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
     background: none;
     border: none;
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
-}
-
-.hidden {
-    display: none;
 }
