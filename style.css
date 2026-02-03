@@ -268,3 +268,19 @@ html {
 .hidden {
     display: none;
 }
+
+
+/* --- PANNEAU À GAUCHE (Classe dynamique) --- */
+#details-panel.left-side {
+    right: auto;
+    left: 0;
+    border-left: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    /* Se cache vers la gauche */
+}
+
+#details-panel.left-side.active {
+    transform: translateX(0);
+    /* Apparaît depuis la gauche */
+}
