@@ -222,3 +222,46 @@ html {
 .hidden {
     display: none;
 }
+
+/* --- LE BOUTON FLOTTANT --- */
+#view-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+    /* Au-dessus de la carte et du panneau */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+#view-toggle:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* --- LE MODE FULL COLOR --- */
+/* Cette classe sera ajoutée via JS */
+.full-color-mode {
+    clip-path: none !important;
+    /* On retire le masque SVG */
+    opacity: 1 !important;
+    /* On force l'opacité à 100% */
+}
+
+/* Petit effet visuel : on cache le trait de sélection au hover en mode full color */
+.full-color-active #map-svg {
+    pointer-events: none;
+    /* Désactive l'interactivité pour profiter de l'image */
+}

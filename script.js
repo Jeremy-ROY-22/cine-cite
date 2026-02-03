@@ -127,3 +127,28 @@ document.getElementById('close-btn').addEventListener('click', () => {
         }
     }, 500);
 });
+
+
+const toggleBtn = document.getElementById('view-toggle');
+let isFullColor = false;
+
+toggleBtn.addEventListener('click', () => {
+    isFullColor = !isFullColor;
+    
+    if (isFullColor) {
+        // Mode Tout en Couleur
+        colorLayer.classList.add('full-color-mode');
+        container.classList.add('full-color-active');
+        toggleBtn.style.background = "white";
+        toggleBtn.style.color = "black";
+    } else {
+        // Retour au mode Interactif
+        colorLayer.classList.remove('full-color-mode');
+        container.classList.remove('full-color-active');
+        toggleBtn.style.background = "rgba(20, 20, 20, 0.8)";
+        toggleBtn.style.color = "white";
+        
+        // On s'assure que le masque est bien réinitialisé
+        revealPath.setAttribute('d', 'M 0 0 Z');
+    }
+});
