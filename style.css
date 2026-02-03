@@ -1,4 +1,4 @@
-/* RESET */
+/* --- BASE & TYPOGRAPHIE --- */
 * {
     box-sizing: border-box;
 }
@@ -9,12 +9,12 @@ html {
     padding: 0;
     background: #0b0b0b;
     color: white;
-    font-family: sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     overflow: hidden;
     height: 100%;
 }
 
-/* HEADER */
+/* --- HEADER FIXE & ÉPURÉ --- */
 #main-header {
     display: flex;
     justify-content: space-between;
@@ -31,25 +31,40 @@ html {
     z-index: 1000;
 }
 
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+    /* Icône en blanc */
+}
+
 .logo {
     font-size: 18px;
     font-weight: 300;
     letter-spacing: 5px;
     text-transform: uppercase;
+    color: #fff;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 35px;
 }
 
 .nav-links a {
     color: #777;
     text-decoration: none;
     font-size: 11px;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -61,13 +76,15 @@ html {
 
 .gh-icon {
     width: 14px;
+    height: 14px;
     filter: invert(1) opacity(0.6);
 }
 
-/* VIEWPORT & MAP */
+/* --- CARTE INTERACTIVE (5761px x 3241px) --- */
 #viewport {
     width: 100vw;
     height: calc(100vh - 70px);
+    /* Hauteur restante sous header */
     margin-top: 70px;
     cursor: grab;
     background: #000;
@@ -94,37 +111,25 @@ html {
     z-index: 1;
 }
 
-.color { 
-    z-index: 2; 
+.color {
+    z-index: 2;
     clip-path: url(#reveal-clip);
-    pointer-events: none;
-    opacity: 0; 
-    /* TRANSITIONS LENTES : 
-       1.5s pour l'opacité (l'effet de lumière)
-       0.8s pour le clip-path (la déformation de la zone)
-    */
-    transition: 
-        opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
-        clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    /* Transition longue pour l'effet smooth */
+    transition: opacity 0.8s ease-in-out, clip-path 0.5s ease;
     will-change: clip-path, opacity;
 }
 
 .color.active {
     opacity: 1;
-    /* On peut rendre l'apparition un peu plus rapide que la disparition */
-    transition: 
-        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-        clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* S'active au hover */
 
 #map-svg {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 5761px;
+    height: 3241px;
     z-index: 10;
 }
 
@@ -134,7 +139,7 @@ html {
     cursor: pointer;
 }
 
-/* PANEL */
+/* --- PANNEAU DE DÉTAILS --- */
 #details-panel {
     position: fixed;
     right: 0;
@@ -175,9 +180,43 @@ html {
 .panel-content h1 {
     font-weight: 300;
     font-size: 32px;
+    letter-spacing: 1px;
     margin-bottom: 25px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 20px;
+}
+
+#cat-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+/* GRILLE D'AFFICHES */
+#posters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.poster-item {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: #222;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.poster-item:hover {
+    transform: translateY(-5px);
+}
+
+.poster-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hidden {
