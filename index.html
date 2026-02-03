@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine-Cite Interactive</title>
+    <title>Cine-Cité Interactive 5K</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,14 +11,41 @@
 
     <div id="viewport">
         <div id="map-container">
-            <img src="assets/render_gray.png" alt="Carte Grise" class="layer gray">
+            <img src="assets/render_gray.jpg" class="layer gray">
 
-            <img src="assets/render_color.png" alt="Carte Couleur" class="layer color" id="color-layer">
+            <img src="assets/render_color.jpg" class="layer color" id="color-layer">
 
-            <svg id="map-svg" viewBox="0 0 1920 1080">
-                <polygon id="zone-aventure" points="800,400 1200,400 1200,700 800,700" class="map-zone"
-                    data-title="Zone Aventure" data-desc="Description de ta zone avec Jurassic Park et le Black Pearl.">
-                </polygon>
+            <svg id="map-svg" viewBox="0 0 5761 3241" preserveAspectRatio="xMidYMid meet">
+                <g id="western" class="map-group">
+                    <path d="M.5.5v1866...Z" class="map-zone" data-title="Western"></path>
+                </g>
+                <g id="fantaisie" class="map-group">
+                    <path d="M4066.9.5...Z" class="map-zone" data-title="Fantaisie"></path>
+                </g>
+                <g id="aventure" class="map-group">
+                    <path d="M5760.5.5...Z" class="map-zone" data-title="Aventure"></path>
+                </g>
+                <g id="animation" class="map-group">
+                    <path d="M4491.5,3240.5...Z" class="map-zone" data-title="Animation"></path>
+                </g>
+                <g id="horreur" class="map-group">
+                    <path d="M3207.7,2334.6...Z" class="map-zone" data-title="Horreur"></path>
+                </g>
+                <g id="superhero" class="map-group">
+                    <path d="M2656.6,3240.5...Z" class="map-zone" data-title="Super-Héros"></path>
+                </g>
+                <g id="scifi" class="map-group">
+                    <path d="M.5,3240.5...Z" class="map-zone" data-title="Science-Fiction"></path>
+                </g>
+                <g id="peplm" class="map-group">
+                    <path d="M.5,1866.5...Z" class="map-zone" data-title="Péplum"></path>
+                </g>
+                <g id="espionnage" class="map-group">
+                    <path d="M1885.9,2311...Z" class="map-zone" data-title="Espionnage"></path>
+                </g>
+                <g id="centre" class="map-group">
+                    <path d="M2419.2,1707.9...Z" class="map-zone" data-title="Cinéma"></path>
+                </g>
             </svg>
         </div>
     </div>
@@ -28,7 +54,7 @@
         <button id="close-btn">×</button>
         <div class="panel-content">
             <h1 id="cat-title">Titre</h1>
-            <p id="cat-desc">Description...</p>
+            <p id="cat-desc">Description de la catégorie...</p>
         </div>
     </div>
 
