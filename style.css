@@ -1,28 +1,83 @@
-/* Base du site */
+/* RESET */
+* {
+    box-sizing: border-box;
+}
+
 body,
 html {
     margin: 0;
     padding: 0;
     background: #0b0b0b;
+    color: white;
+    font-family: sans-serif;
     overflow: hidden;
     height: 100%;
 }
 
-/* Le "cadre" dans lequel on bouge */
-#viewport {
-    width: 100vw;
-    height: 100vh;
-    cursor: grab;
-    display: block;
+/* HEADER */
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 70px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
-/* LE CONTENEUR FIXE (Taille de ton image 5K) */
+.logo {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #777;
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.gh-icon {
+    width: 14px;
+    filter: invert(1) opacity(0.6);
+}
+
+/* VIEWPORT & MAP */
+#viewport {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    cursor: grab;
+    background: #000;
+}
+
 #map-container {
     position: relative;
     width: 5761px;
     height: 3241px;
     transform-origin: 0 0;
-    /* Crucial pour le zoom Panzoom */
 }
 
 .layer {
@@ -39,21 +94,37 @@ html {
     z-index: 1;
 }
 
-.color {
-    z-index: 2;
+.color { 
+    z-index: 2; 
     clip-path: url(#reveal-clip);
-    /* Lien vers le masque SVG */
-    opacity: 1;
-    transition: opacity 0.2s;
+    pointer-events: none;
+    opacity: 0; 
+    /* TRANSITIONS LENTES : 
+       1.5s pour l'opacité (l'effet de lumière)
+       0.8s pour le clip-path (la déformation de la zone)
+    */
+    transition: 
+        opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), 
+        clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: clip-path, opacity;
 }
 
-/* Le SVG doit faire la même taille que l'image */
+.color.active {
+    opacity: 1;
+    /* On peut rendre l'apparition un peu plus rapide que la disparition */
+    transition: 
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+        clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* S'active au hover */
+
 #map-svg {
     position: absolute;
     top: 0;
     left: 0;
-    width: 5761px;
-    height: 3241px;
+    width: 100%;
+    height: 100%;
     z-index: 10;
 }
 
@@ -63,43 +134,52 @@ html {
     cursor: pointer;
 }
 
-/* Optionnel : surbrillance très légère au survol pour debug */
-.map-zone:hover {
-    fill: rgba(255, 255, 255, 0.03);
-}
-
-/* Panneau latéral */
+/* PANEL */
 #details-panel {
     position: fixed;
     right: 0;
-    top: 0;
-    width: 420px;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    color: white;
-    padding: 40px;
-    z-index: 100;
+    top: 70px;
+    width: 450px;
+    height: calc(100vh - 70px);
+    background: rgba(15, 15, 15, 0.98);
+    backdrop-filter: blur(15px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+    padding: 60px 40px;
     transform: translateX(100%);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
-    border-left: 1px solid #333;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 }
 
 #details-panel.active {
     transform: translateX(0);
 }
 
-.hidden {
-    display: none;
-}
-
 #close-btn {
     background: none;
     border: none;
-    color: white;
-    font-size: 35px;
+    color: #444;
+    font-size: 28px;
     cursor: pointer;
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: 20px;
+    right: 25px;
+    transition: 0.3s;
+}
+
+#close-btn:hover {
+    color: #fff;
+}
+
+.panel-content h1 {
+    font-weight: 300;
+    font-size: 32px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.hidden {
+    display: none;
 }
