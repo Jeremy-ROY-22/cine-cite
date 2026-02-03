@@ -1,32 +1,38 @@
+/* Base du site */
 body,
 html {
     margin: 0;
     padding: 0;
-    background: #000;
+    background: #0b0b0b;
     overflow: hidden;
     height: 100%;
 }
 
+/* Le "cadre" dans lequel on bouge */
 #viewport {
     width: 100vw;
     height: 100vh;
     cursor: grab;
+    display: block;
 }
 
+/* LE CONTENEUR FIXE (Taille de ton image 5K) */
 #map-container {
     position: relative;
-    width: 100vw;
-    /* Ratio 5761/3241 pour éviter les décalages */
-    aspect-ratio: 5761 / 3241;
+    width: 5761px;
+    height: 3241px;
+    transform-origin: 0 0;
+    /* Crucial pour le zoom Panzoom */
 }
 
 .layer {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
     position: absolute;
     top: 0;
     left: 0;
+    pointer-events: none;
 }
 
 .gray {
@@ -35,45 +41,48 @@ html {
 
 .color {
     z-index: 2;
-    /* Masque vide au départ */
-    clip-path: path("M 0 0 L 0 0 Z");
-    transition: clip-path 0.4s ease-in-out;
-    pointer-events: none;
-    image-rendering: high-quality;
-    /* Garde ton 5K bien net */
+    clip-path: url(#reveal-clip);
+    /* Lien vers le masque SVG */
+    opacity: 1;
+    transition: opacity 0.2s;
 }
 
+/* Le SVG doit faire la même taille que l'image */
 #map-svg {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 5761px;
+    height: 3241px;
     z-index: 10;
 }
 
 .map-zone {
     fill: transparent;
-    stroke: none;
-    /* On cache le trait noir d'Illustrator */
     pointer-events: all;
     cursor: pointer;
 }
 
-/* Style du panneau latéral */
+/* Optionnel : surbrillance très légère au survol pour debug */
+.map-zone:hover {
+    fill: rgba(255, 255, 255, 0.03);
+}
+
+/* Panneau latéral */
 #details-panel {
     position: fixed;
     right: 0;
     top: 0;
-    width: 450px;
+    width: 420px;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     color: white;
     padding: 40px;
     z-index: 100;
     transform: translateX(100%);
-    transition: 0.5s;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    border-left: 1px solid #333;
 }
 
 #details-panel.active {
@@ -82,4 +91,15 @@ html {
 
 .hidden {
     display: none;
+}
+
+#close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
 }
