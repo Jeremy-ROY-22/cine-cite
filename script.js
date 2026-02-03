@@ -43,6 +43,37 @@ const categoryData = {
     }
 };
 
+
+// On note l'heure précise du lancement
+const startTime = Date.now();
+
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    const viewport = document.getElementById('viewport');
+    
+    // On calcule le temps déjà écoulé pendant le téléchargement
+    const elapsedTime = Date.now() - startTime;
+    // On calcule ce qu'il reste pour atteindre 4000ms (4s)
+    const remainingTime = Math.max(0, 4000 - elapsedTime);
+
+    setTimeout(() => {
+        // 1. On fait disparaître le loader
+        loader.classList.add('fade-out');
+        
+        // 2. On lance l'ouverture en cercle (Iris Out)
+        viewport.classList.add('revealed');
+        
+        // 3. On lance l'animation de dézoom de la carte
+        setTimeout(() => {
+            const zoomLevel = window.innerWidth / 5761; 
+            panzoom.zoom(zoomLevel, { animate: true });
+            panzoom.pan(0, 0);
+        }, 500);
+
+    }, remainingTime);
+});
+
+
 /* --- 2. SÉLECTION DES ÉLÉMENTS --- */
 const container = document.getElementById('map-container');
 const colorLayer = document.getElementById('color-layer');

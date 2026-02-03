@@ -14,6 +14,75 @@ html {
     height: 100%;
 }
 
+/* --- ÉCRAN DE CHARGEMENT --- */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    /* Aligne les éléments les uns sous les autres */
+    align-items: center;
+    /* CENTRE horizontalement tous les enfants (SVG et P) */
+    text-align: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    fill: #fff;
+    animation: spin 2s linear infinite;
+    margin-bottom: 25px;
+    /* Un peu plus d'espace pour l'équilibre visuel */
+    display: block;
+    /* Évite les comportements d'alignement de texte */
+}
+
+.loader-content p {
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 5px;
+    /* Un peu plus espacé pour le look "Cinéma" */
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin: 0;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- EFFET IRIS SUR LE VIEWPORT --- */
+#viewport {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    background: #000;
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 2.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+#viewport.revealed {
+    clip-path: circle(150% at 50% 50%);
+}
+
 /* --- HEADER FIXE & ÉPURÉ --- */
 #main-header {
     display: flex;
