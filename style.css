@@ -247,6 +247,7 @@ html {
     right: 0;
     top: 70px;
     width: 550px;
+    /* Élargi */
     height: calc(100vh - 70px);
     background: rgba(12, 12, 12, 0.98);
     backdrop-filter: blur(25px);
@@ -335,17 +336,17 @@ html {
     transform: translateX(0);
 }
 
-/* --- STYLES DU TITRE AVEC POLICES THÉMATIQUES (SANS COULEURS) --- */
+/* --- STYLES DU TITRE (BLANC UNIFORME) --- */
 .panel-content h1 {
     font-weight: 200;
     font-size: 52px;
     letter-spacing: 4px;
     text-transform: uppercase;
     margin: 0 0 45px 0;
-    color: #fff;
+    color: #fff !important;
 }
 
-/* Classes dynamiques pour les titres - Uniquement les familles de polices */
+/* Classes dynamiques pour les titres (Typo seule) */
 .font-western {
     font-family: 'WesternCustom', sans-serif !important;
 }
@@ -364,6 +365,7 @@ html {
 
 .font-horreur {
     font-family: 'HorreurCustom', serif !important;
+    font-size: 65px !important;
 }
 
 .font-superhero {
@@ -442,20 +444,35 @@ html {
     margin-bottom: 0;
 }
 
+/* --- CARROUSSEL MODIFIÉ --- */
 .movie-carousel {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
+    /* Un peu plus pour la barre */
 }
 
+/* Scrollbar du carrousel agrandie */
 .movie-carousel::-webkit-scrollbar {
-    height: 4px;
+    height: 10px;
+    /* Plus épaisse */
+}
+
+.movie-carousel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
 }
 
 .movie-carousel::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #444;
+    /* Plus visible */
     border-radius: 10px;
+    border: 2px solid #111;
+}
+
+.movie-carousel::-webkit-scrollbar-thumb:hover {
+    background: #b30000;
 }
 
 .movie-card {
@@ -471,6 +488,7 @@ html {
 .poster-placeholder {
     width: 160px;
     height: 240px;
+    /* Fixé */
     background: #1a1a1a;
     border-radius: 3px;
     margin-bottom: 12px;
