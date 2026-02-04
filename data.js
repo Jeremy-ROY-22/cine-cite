@@ -18,12 +18,12 @@ const categoryData = {
             "John Wayne a joué dans plus de 140 Westerns au cours de sa carrière monumentale."
         ],
         movies: [
-            { title: "Stagecoach", date: "1939" }, 
-            { title: "The Searchers", date: "1956" },
-            { title: "Once Upon a Time in the West", date: "1968" }, 
-            { title: "Unforgiven", date: "1992" },
-            { title: "True Grit", date: "2010" }, 
-            { title: "Django Unchained", date: "2012" }
+            { title: "Stagecoach", date: "1939", poster: "assets/affiches/stagecoach.jpg" }, 
+            { title: "The Searchers", date: "1956", poster: "assets/affiches/searchers.jpg" },
+            { title: "Once Upon a Time in the West", date: "1968", poster: "assets/affiches/once_upon_e_time_j.jpg" }, 
+            { title: "Unforgiven", date: "1992", poster: "assets/affiches/unforgiven.jpg" },
+            { title: "True Grit", date: "2010", poster: "assets/affiches/true_grit.jpg" }, 
+            { title: "Django Unchained", date: "2012", poster: "assets/affiches/django.jpg" }
         ]
     },
 
@@ -46,12 +46,12 @@ const categoryData = {
             "Le film 'Legend' de Ridley Scott a utilisé de la vraie nourriture et des décors naturels pour éviter l'aspect artificiel."
         ],
         movies: [
-            { title: "The Wizard of Oz", date: "1939" }, 
-            { title: "Willow", date: "1988" },
-            { title: "The Fellowship of the Ring", date: "2001" }, 
-            { title: "Harry Potter", date: "2001" },
-            { title: "Pan's Labyrinth", date: "2006" }, 
-            { title: "The Chronicles of Narnia", date: "2005" }
+            { title: "The Wizard of Oz", date: "1939", poster: "assets/affiches/magicien_oz.jpg" }, 
+            { title: "Willow", date: "1988", poster: "assets/affiches/willow.jpg" },
+            { title: "The Fellowship of the Ring", date: "2001", poster: "assets/affiches/seigneur_anneaux.jpg" }, 
+            { title: "Harry Potter", date: "2001", poster: "assets/affiches/harry_potter.jpg" },
+            { title: "Pan's Labyrinth", date: "2006", poster: "assets/affiches/lab_pan.jpg" }, 
+            { title: "The Chronicles of Narnia", date: "2005", poster: "assets/affiches/narnia.jpg" }
         ]
     },
 
@@ -74,12 +74,12 @@ const categoryData = {
             "L'attraction 'Pirates des Caraïbes' de Disney a inspiré le film, et non l'inverse, ce qui était une première à l'époque."
         ],
         movies: [
-            { title: "Robin Hood", date: "1938" }, 
-            { title: "Raiders of the Lost Ark", date: "1981" },
-            { title: "Jurassic Park", date: "1993" }, 
-            { title: "Pirates of the Caribbean", date: "2003" },
-            { title: "The Mummy", date: "1999" }, 
-            { title: "Uncharted", date: "2022" }
+            { title: "Robin Hood", date: "1938", poster: "assets/affiches/robin_hood.jpg" }, 
+            { title: "Raiders of the Lost Ark", date: "1981", poster: "assets/affiches/indiana_jones.jpg" },
+            { title: "Jurassic Park", date: "1993", poster: "assets/affiches/jurassic_park.jpg" }, 
+            { title: "Pirates of the Caribbean", date: "2003", poster: "assets/affiches/pirates_caribbean.jpg" },
+            { title: "The Mummy", date: "1999", poster: "assets/affiches/mummy.jpg" }, 
+            { title: "Uncharted", date: "2022", poster: "assets/affiches/uncharted.jpg" }
         ]
     },
 
@@ -102,12 +102,12 @@ const categoryData = {
             "Pour 'Le Roi Lion', des animateurs ont étudié de vrais lions en studio pour capturer leurs mouvements."
         ],
         movies: [
-            { title: "Snow White", date: "1937" }, 
-            { title: "Spirited Away", date: "2001" },
-            { title: "Toy Story", date: "1995" }, 
-            { title: "The Lion King", date: "1994" },
-            { title: "Spider-Man: Spider-Verse", date: "2018" }, 
-            { title: "Soul", date: "2020" }
+            { title: "Snow White", date: "1937", poster: "assets/affiches/snow_white.jpg" }, 
+            { title: "Spirited Away", date: "2001", poster: "assets/affiches/spirited_away.jpg" },
+            { title: "Toy Story", date: "1995", poster: "assets/affiches/toy_story.jpg" }, 
+            { title: "The Lion King", date: "1994", poster: "assets/affiches/lion_king.jpg" },
+            { title: "Spider-Man: Spider-Verse", date: "2018", poster: "assets/affiches/spider_vers.jpg" }, 
+            { title: "Soul", date: "2020", poster: "assets/affiches/soul.jpg" }
         ]
     },
 
@@ -130,12 +130,12 @@ const categoryData = {
             "Le film 'L'Exorciste' a été entouré de rumeurs de malédiction suite à de nombreux accidents sur le plateau."
         ],
         movies: [
-            { title: "Nosferatu", date: "1922" }, 
-            { title: "Psycho", date: "1960" },
-            { title: "The Exorcist", date: "1973" }, 
-            { title: "Halloween", date: "1978" },
-            { title: "Get Out", date: "2017" }, 
-            { title: "Hereditary", date: "2018" }
+            { title: "Nosferatu", date: "1922", poster: "assets/affiches/nosferatu.jpg" }, 
+            { title: "Psycho", date: "1960", poster: "assets/affiches/psycho.jpg" },
+            { title: "The Exorcist", date: "1973", poster: "assets/affiches/exorcist.jpg" }, 
+            { title: "Halloween", date: "1978", poster: "assets/affiches/halloween.jpg" },
+            { title: "Get Out", date: "2017", poster: "assets/affiches/get_out.jpg" }, 
+            { title: "Hereditary", date: "2018", poster: "assets/affiches/hereditary.jpg" }
         ]
     },
 
@@ -158,12 +158,12 @@ const categoryData = {
             "Le costume de Batman dans le film de 1989 était si rigide que Michael Keaton ne pouvait pas tourner la tête."
         ],
         movies: [
-            { title: "Superman", date: "1978" }, 
-            { title: "Batman", date: "1989" },
-            { title: "X-Men", date: "2000" }, 
-            { title: "Spider-Man", date: "2002" },
-            { title: "The Avengers", date: "2012" }, 
-            { title: "The Dark Knight", date: "2008" }
+            { title: "Superman", date: "1978", poster: "assets/affiches/superman.jpg" }, 
+            { title: "Batman", date: "1989", poster: "assets/affiches/batman.jpg" },
+            { title: "X-Men", date: "2000", poster: "assets/affiches/x-men.jpg" }, 
+            { title: "Spider-Man", date: "2002", poster: "assets/affiches/spiderman.jpg" },
+            { title: "The Avengers", date: "2012", poster: "assets/affiches/avengers.jpg" }, 
+            { title: "The Dark Knight", date: "2008", poster: "assets/affiches/dark_knight.jpg" }
         ]
     },
 
@@ -186,12 +186,12 @@ const categoryData = {
             "Le code vert qui défile dans 'Matrix' est en fait une compilation de recettes de sushis numérisées."
         ],
         movies: [
-            { title: "Metropolis", date: "1927" }, 
-            { title: "2001: A Space Odyssey", date: "1968" },
-            { title: "Star Wars", date: "1977" }, 
-            { title: "Blade Runner", date: "1982" },
-            { title: "Matrix", date: "1999" }, 
-            { title: "Interstellar", date: "2014" }
+            { title: "Metropolis", date: "1927", poster: "assets/affiches/metropolis.jpg" }, 
+            { title: "2001: A Space Odyssey", date: "1968", poster: "assets/affiches/2001.jpg" },
+            { title: "Star Wars", date: "1977", poster: "assets/affiches/star_wars.jpg" }, 
+            { title: "Blade Runner", date: "1982", poster: "assets/affiches/blade_runner.jpg" },
+            { title: "Matrix", date: "1999", poster: "assets/affiches/matrix.jpg" }, 
+            { title: "Interstellar", date: "2014", poster: "assets/affiches/interstellar.jpg" }
         ]
     },
 
@@ -214,12 +214,12 @@ const categoryData = {
             "Les acteurs du film '300' ont suivi un entraînement militaire intensif pendant 8 semaines pour obtenir leur physique de Spartiates."
         ],
         movies: [
-            { title: "Ben-Hur", date: "1959" }, 
-            { title: "Cleopatra", date: "1963" },
-            { title: "Spartacus", date: "1960" }, 
-            { title: "Gladiator", date: "2000" },
-            { title: "Troy", date: "2004" }, 
-            { title: "300", date: "2006" }
+            { title: "Ben-Hur", date: "1959", poster: "assets/affiches/ben-hur.jpg" }, 
+            { title: "Cleopatra", date: "1963", poster: "assets/affiches/cleopatre.jpg" },
+            { title: "Spartacus", date: "1960", poster: "assets/affiches/spartacus.jpg" }, 
+            { title: "Gladiator", date: "2000", poster: "assets/affiches/gladiator.jpg" },
+            { title: "Troy", date: "2004", poster: "assets/affiches/troy.jpg" }, 
+            { title: "300", date: "2006", poster: "assets/affiches/300.jpg" }
         ]
     },
 
@@ -242,12 +242,12 @@ const categoryData = {
             "Tom Cruise réalise lui-même la quasi-totalité de ses cascades dans 'Mission Impossible', y compris les plus dangereuses."
         ],
         movies: [
-            { title: "North by Northwest", date: "1959" }, 
-            { title: "Dr. No", date: "1962" },
-            { title: "Mission: Impossible", date: "1996" }, 
-            { title: "The Bourne Identity", date: "2002" },
-            { title: "Kingsman", date: "2014" }, 
-            { title: "Skyfall", date: "2012" }
+            { title: "North by Northwest", date: "1959", poster: "assets/affiches/north_northwest.jpg" }, 
+            { title: "Dr. No", date: "1962", poster: "assets/affiches/dr_no.jpg" },
+            { title: "Mission: Impossible", date: "1996", poster: "assets/affiches/mission_impossible.jpg" }, 
+            { title: "The Bourne Identity", date: "2002", poster: "assets/affiches/jason_bourne.jpg" },
+            { title: "Kingsman", date: "2014", poster: "assets/affiches/kingsman.jpg" }, 
+            { title: "Skyfall", date: "2012", poster: "assets/affiches/skyfall.jpg" }
         ]
     }
 };

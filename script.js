@@ -97,9 +97,12 @@ zones.forEach(zone => {
 
             const anecdotesHtml = data.anecdotes.map(a => `<div class="anecdote-item">${a}</div>`).join('');
 
+            // MODIFICATION : On utilise m.poster pour afficher la vraie image
             const moviesHtml = data.movies.map(m => `
                 <div class="movie-card">
-                    <div class="poster-placeholder">Affiche</div>
+                    <div class="poster-placeholder">
+                        <img src="${m.poster}" class="movie-poster" alt="${m.title}">
+                    </div>
                     <div class="movie-info">
                         <span class="m-title">${m.title}</span>
                         <span class="m-date">${m.date}</span>
