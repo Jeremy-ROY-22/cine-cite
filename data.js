@@ -239,7 +239,7 @@ const categoryData = {
             { 
                 date: "MMI 3 — 2026", 
                 title: "Réenchanter le monde", 
-                text: "Dans le cadre de mon projet de 3ème année de BUT MMI, j'ai choisi d'explorer l'univers du cinéma sous un angle ludique et immersif. À travers cette carte 5K interactive, Ciné Cité vous invite à redécouvrir les genres qui ont façonné l'imaginaire collectif, mêlant exploration visuelle et rigueur historique." 
+                text: "Dans le cadre de mon projet de 3ème année de BUT MMI, nous devions réaliser un projet autour du thème : 'Réenchanter le monde'. Pour cela j'ai décidé de réenchanter un monde, un univers qui me passione : le monde du cinéma. Et plus particulierement les genres de films, qui sont très peu représentés sur les différents sites et les différentes plateformes. A travers ce projet, je cherche donc à réenchanter ce monde en lui redonnant ses couleurs et en le remettant aux gouts du jours de façon ludique." 
             }
         ]
     }
