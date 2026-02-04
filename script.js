@@ -78,7 +78,7 @@ zones.forEach(zone => {
             return;
         }
 
-        const data = categoryData[id]; // Utilise les données de data.js
+        const data = categoryData[id]; 
         if (data) {
             if (e.clientX > window.innerWidth / 2) {
                 panel.classList.add('left-side');
@@ -86,7 +86,6 @@ zones.forEach(zone => {
                 panel.classList.remove('left-side');
             }
 
-            // --- CONSTRUCTION DYNAMIQUE DU HTML ---
             const historyHtml = data.history.map(h => `
                 <div class="history-section">
                     <span class="date-range">${h.date}</span>
@@ -97,7 +96,6 @@ zones.forEach(zone => {
 
             const anecdotesHtml = data.anecdotes.map(a => `<div class="anecdote-item">${a}</div>`).join('');
 
-            // MODIFICATION : On utilise m.poster pour afficher la vraie image
             const moviesHtml = data.movies.map(m => `
                 <div class="movie-card">
                     <div class="poster-placeholder">
@@ -110,8 +108,9 @@ zones.forEach(zone => {
                 </div>
             `).join('');
 
+            // MODIFICATION : On injecte la classe font-${id} pour changer la police du titre h1
             panelContent.innerHTML = `
-                <h1>${data.title}</h1>
+                <h1 class="font-${id}">${data.title}</h1>
                 <h2>Parcours Historique</h2>
                 ${historyHtml}
                 <div class="anecdote-box">${anecdotesHtml}</div>

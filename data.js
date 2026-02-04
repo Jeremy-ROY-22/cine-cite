@@ -140,7 +140,7 @@ const categoryData = {
     },
 
     "superhero": { 
-        title: "Super-Héros", 
+        title: "Super-Heros", 
         font: "",
         history: [
             { date: "1940 — 1978", 
