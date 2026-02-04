@@ -86,6 +86,9 @@ zones.forEach(zone => {
                 panel.classList.remove('left-side');
             }
 
+            // --- CONSTRUCTION DYNAMIQUE SÉCURISÉE ---
+            
+            // 1. Histoire (Toujours présente)
             const historyHtml = data.history.map(h => `
                 <div class="history-section">
                     <span class="date-range">${h.date}</span>
@@ -94,28 +97,38 @@ zones.forEach(zone => {
                 </div>
             `).join('');
 
-            const anecdotesHtml = data.anecdotes.map(a => `<div class="anecdote-item">${a}</div>`).join('');
-
-            const moviesHtml = data.movies.map(m => `
-                <div class="movie-card">
-                    <div class="poster-placeholder">
-                        <img src="${m.poster}" class="movie-poster" alt="${m.title}">
-                    </div>
-                    <div class="movie-info">
-                        <span class="m-title">${m.title}</span>
-                        <span class="m-date">${m.date}</span>
-                    </div>
+            // 2. Anecdotes (Seulement si elles existent)
+            const anecdotesHtml = (data.anecdotes && data.anecdotes.length > 0) ? `
+                <div class="anecdote-box">
+                    ${data.anecdotes.map(a => `<div class="anecdote-item">${a}</div>`).join('')}
                 </div>
-            `).join('');
+            ` : '';
 
-            // MODIFICATION : On injecte la classe font-${id} pour changer la police du titre h1
+            // 3. Films (Seulement s'ils existent)
+            const moviesHtml = (data.movies && data.movies.length > 0) ? `
+                <h2>Filmographie Majeure</h2>
+                <div class="movie-carousel">
+                    ${data.movies.map(m => `
+                        <div class="movie-card">
+                            <div class="poster-placeholder">
+                                <img src="${m.poster}" class="movie-poster" alt="${m.title}">
+                            </div>
+                            <div class="movie-info">
+                                <span class="m-title">${m.title}</span>
+                                <span class="m-date">${m.date}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            ` : '';
+
+            // Injection finale
             panelContent.innerHTML = `
                 <h1 class="font-${id}">${data.title}</h1>
-                <h2>Parcours Historique</h2>
+                <h2>${id === 'centre' ? 'Présentation du Projet' : 'Parcours Historique'}</h2>
                 ${historyHtml}
-                <div class="anecdote-box">${anecdotesHtml}</div>
-                <h2>Filmographie Majeure</h2>
-                <div class="movie-carousel">${moviesHtml}</div>
+                ${anecdotesHtml}
+                ${moviesHtml}
                 <div style="height: 60px;"></div>
             `;
             
